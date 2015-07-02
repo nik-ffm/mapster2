@@ -1,0 +1,155 @@
+// import bootstrap
+@import "../bower_components/bootstrap/less/bootstrap.less";
+@import "../bower_components/fontawesome/less/font-awesome.less";
+
+/* Webfont: Lato-Medium */
+@font-face {
+    font-family: 'Lato';
+    src: url('../fonts/Lato-Medium.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/Lato-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/Lato-Medium.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/Lato-Medium.ttf') format('truetype'); 
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Lato-Bold */
+@font-face {
+    font-family: 'LatoBold';
+    src: url('../fonts/Lato-Bold.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/Lato-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/Lato-Bold.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/Lato-Bold.ttf') format('truetype'); 
+    font-style: normal;
+    font-weight: bold;
+    text-rendering: optimizeLegibility;
+}
+
+/* Bootstrap overwrites */
+@gray-base: #E8E8E8;
+@bg-sec: #AFA6A4;
+@font: #696158;
+@yellow: #F5AF02;
+@blue: #6EB1BD;
+@red: rgb(249,39,97);
+@dark-font: rgb(84,164,175);
+
+
+/* Own */
+@bg-light: rgb(243,243,243);
+@bg-dark: rgb(233,233,233);
+@dark-grey: rgb(177,166,164);
+
+@brown: rgb(87,78,70);
+@nav-bg: @brown;
+// here goes our custom code \o/
+
+.fa {
+  display: inline-block;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input[type="text"],
+textarea{
+  padding: 10px;
+}
+
+/*-- Note form --*/
+textarea {
+  min-height: 5rem; }
+
+textarea,
+[type=text],
+[type=search] {
+  width: 100%;
+  box-shadow: none;
+  font: inherit;
+  border-radius: 5px;
+  border: 1px solid #cccccc;
+  padding: .25rem; }
+  textarea:focus,
+  [type=text]:focus,
+  [type=search]:focus {
+    background: #ffc;
+    outline: none;
+    box-shadow: 0 0 4px 0px #56b5ce;
+    border: 1px solid #56b5ce; }
+
+[type=search] {
+  width: 85.5%; }
+
+[id=searchnotes] button {
+  padding: .4rem 1.5rem; }
+
+form :focus::-webkit-input-placeholder {
+  color: transparent; }
+form :focus::-moz-placeholder {
+  color: transparent; }
+form :focus:-ms-input-placeholder {
+  color: transparent; }
+
+.disabled label, .disabled .guidance, .disabled [type=submit] {
+  display: none; }
+.disabled .edit {
+  display: inline-block; }
+
+[disabled] {
+  border: none;
+  padding: 0;
+  color: #000;
+  background: transparent; }
+
+textarea[disabled] {
+  resize: none; }
+
+[type=file] {
+  opacity: 0; }
+  [type=file]:disabled {
+    display: none; }
+
+[id=notetitle][disabled], [id=notetitle]:disabled {
+  font-size: 1.6rem; }
+
+progress {
+  display: block;
+  margin: 3em auto;
+  width: 90%; }
+
+/*==== Note Table ====*/
+table {
+  width: 100%;
+  border: 1px solid #cccccc;
+  border-collapse: collapse;
+  margin: 0; }
+
+th, td {
+  padding: .25rem .5rem; }
+
+th {
+  border: 1px solid #2d6775; }
+
+td {
+  border: 1px solid #cccccc; }
+
+thead {
+  background: #56b5ce; }
+
+th:first-child {
+  width: 60%;
+  text-align: left; }
+
+tbody tr:nth-child(even) {
+  background: #eee; }
+
+/*==== Footer ===*/
+body > footer p {
+  font-style: italic;
+  color: #cccccc;
+  text-align: right; }
+

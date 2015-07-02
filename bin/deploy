@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# change to project directory
+cd /srv/http/julohosted.net/tecapp
+
+# update git
+git pull
+
+# update requirements
+node_modules/bower/bin/bower install
+
+# compile less
+node_modules/less/bin/lessc less/tecapp.less app/css/tecapp.css

@@ -1,0 +1,18 @@
+web:
+    build: .
+    volumes:
+        - .:/app/
+    ports:
+        - "5005:80"
+    links:
+        - less
+        - couch
+less:
+    build: less
+    volumes:
+        - .:/app/
+    command: watch-lessc -i /app/less/style.less -o /app/app/css/style.css
+couch:
+    image: klaemo/couchdb
+    ports:
+        - "5984:5984"

@@ -1,0 +1,14 @@
+CACHE MANIFEST
+# Version 2014.02.10.01
+
+CACHE:
+index.html
+css/style.css
+css/mapbox.css
+
+js/pouchdb-nightly.min.js
+js/requirements/jquery.js
+js/requirements/mapbox.js
+js/requirements/offline.min.js
+js/application.js
+js/script.js

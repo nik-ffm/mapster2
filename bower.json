@@ -1,0 +1,33 @@
+{
+  "name": "tecapp",
+  "version": "0.0.0",
+  "homepage": "https://github.com/alexex/tecapp",
+  "authors": [
+    "Alexander Jung-Loddenkemper <alexander@julo.ch>",
+    "Nico Kreiling <nico.kreiling@gmx.de>"
+  ],
+  "license": "SECRET",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jqueryui": "",
+    "jquery": "",
+    "backbone": "",
+    "backbone.localStorage": "",
+    "backbone.stickit":"",
+    "bootstrap": "",
+    "moment": "",
+    "requirejs": "",
+    "requirejs-text": "",
+    "fontawesome": "",
+    "dropzone": "",
+    "jquery-tagit": "",
+    "hammer.js": ""
+  }
+}

@@ -1,0 +1,3 @@
+#!/bin/bash
+# access remote server
+ssh tecalliance@helium.julohosted.net 'bash -s' < bin/deploy
