@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en-us" manifest="pouchnotes.manifest2">
+<head>
+    <meta charset="utf-8" />
+    <title>Mapster</title>
+    <meta name="viewport" content="width=device-width, height=device-height , initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="img/logo192.png">
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/mapbox.css">
+    <script type="text/javascript" src="js/requirements/pouchdb.js"></script>
+    <script type="text/javascript" src="js/requirements/jquery.js"></script>
+    <script type="text/javascript" src="js/requirements/mapbox.js"></script>
+        <script type="text/javascript" src="js/requirements/bootstrap.js"></script>
+    <script type="text/javascript" src="js/requirements/offline.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" style="margin-left: 8px;">
+                <span class="sr-only">Toggle navigation</span>
+                <i class="fa fa-bars"></i>
+              </button>
+              <a href="post.html">
+                <button type="button" class="navbar-toggle collapsed pull-right"><i class="fa fa-plus"></i></button>
+              </a>
+              <a class="navbar-brand" href="#" style="width: 60%; text-align: center">Mapster</a>
+
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+               <form class="form-inline">
+                        <input type="text" class="form-control" id="q" name="q" placeholder="Search the world..." style="width: 80%; display: inline-block">
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                </form>
+                <div class="container">
+                    <button class="clicktarget" type="button" data-action="viewnoteset" data-show="#allnotes" data-hide="section:not(#allnotes)">View Posts</button>
+                    <button class="clicktarget" type="button" data-show="#addnote" data-hide="section:not(#addnote)">Add Post</button>
+                    <button type="button" id="syncData">SyncData</button>
+                </div>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+
+
+    <main>
+        <section id="addnote" class="hide">
+            <form id="noteform" method="post" data-show="#allnotes" data-hide="#addnote">
+                <div class="hide" id="buttonwrapper">
+                    <button class="clicktarget edit" type="button">Edit Post</button>
+                    <button class="clicktarget delete" type="button">Delete Post</button>
+                </div>
+                <p>
+                    <input type="hidden" id="_rev" name="_rev" value="">
+                    <input type="hidden" id="_id"  name="_id" value="">
+                    <input type="text" id="notetitle" name="notetitle" placeholder="Your exciting post title" value="">
+                </p>
+                <p>
+                    <textarea id="note" name="note" cols="50" rows="5" placeholder="Don't keep your trip insights for you - share it with the world" required></textarea>
+                </p>
+                <p>
+                    <input type="text" id="tags" name="tags" placeholder="location, hostel names, experiences">
+                    <span class="guidance">Use multiple tags seperated by comma</span>
+                </p>
+                 <p>
+                    <input type="text" id="cats" name="cats" placeholder="location, hostel names, experiences">
+                </p>
+                
+                <p class="rel">
+                    <input type="file" id="attachment" name="attachment" class="abs">
+                    <label for="attachment" class="btn">Attachment(s):</label>
+                    <span class="filelist"></span>
+                </p>
+                
+                <div id="attachments" class="hide">
+                    <h2>Attachments</h2>
+                    <ul id="attachmentlist"></ul>
+                </div>
+
+                <div id="coordinates">
+                    <button id="findMe" class="pull-right" type="button">Find Me!</button>
+                    <label for="lat">Lat: </label>
+                    <input id="lat" name="lat"/><br/>
+                   <label  for="lng">Long:</label>
+                    <input id="lng" name="lng"/>
+                    
+                    <div id="findMeMap" style="height: 200px; width: 100%;"></div>
+                </div>
+                
+                <p>
+                    <button type="submit">Save Post</button>
+                </p>
+            </form>
+       </section>
+        
+        <section id="allnotes">
+            <h2>Posts</h2>
+            <form id="searchnotes" method="get">
+                <p>
+                    <label for="q">Search</label> 
+                    <input type="search" id="q" name="q">
+                    <button type="submit">Search</button>
+                </p>
+            </form>
+            
+            <div id="postMap">
+            </div>
+            
+            <table id="notelist">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Created</th>
+                        <th>Updated</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>    
+
+
+            <div id="myPostsMap" style="width: 100%; height: 200px;"></div>
+        </section>  
+    </main>
+    
+    <div id="syncdialog" class="dialog hide" data-action="close">
+        <div>
+            <button type="button" class="close" data-action="close">Close</button>
+            <h1>Sync-ing data</h1>
+            <div class="progressbar">
+                <progress max="100"></progress>
+            </div>
+        </div>
+    </div>
+    <div id="errordialog" class="dialog hide" data-action="close">
+        <div>
+            <button type="button" data-action="close"></button>
+            <h1>Error</h1>
+            <div class="msg"></div>
+        </div>
+    </div>
+    
+    <script src="js/application.js"></script>
+</body>
+</html>

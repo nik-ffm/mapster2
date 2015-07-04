@@ -1,7 +1,6 @@
 // import bootstrap
 @import "../bower_components/bootstrap/less/bootstrap.less";
 @import "../bower_components/fontawesome/less/font-awesome.less";
-
 /* Webfont: Lato-Medium */
 @font-face {
     font-family: 'Lato';
@@ -11,18 +10,6 @@
          url('../fonts/Lato-Medium.ttf') format('truetype'); 
     font-style: normal;
     font-weight: normal;
-    text-rendering: optimizeLegibility;
-}
-
-/* Webfont: Lato-Bold */
-@font-face {
-    font-family: 'LatoBold';
-    src: url('../fonts/Lato-Bold.eot'); /* IE9 Compat Modes */
-    src: url('../fonts/Lato-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('../fonts/Lato-Bold.woff') format('woff'), /* Modern Browsers */
-         url('../fonts/Lato-Bold.ttf') format('truetype'); 
-    font-style: normal;
-    font-weight: bold;
     text-rendering: optimizeLegibility;
 }
 
@@ -45,6 +32,25 @@
 @nav-bg: @brown;
 // here goes our custom code \o/
 
+.gpsInput {
+    line-height: 2em;
+  width: 100%;
+}
+
+.fullpage {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.navbar-toggle{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
 .fa {
   display: inline-block;
   font-family: FontAwesome;
@@ -55,10 +61,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-input[type="text"],
-textarea{
-  padding: 10px;
-}
+.navbar{
+  margin-bottom: 0px;
+  }  
+
 
 /*-- Note form --*/
 textarea {
@@ -153,3 +159,36 @@ body > footer p {
   color: #cccccc;
   text-align: right; }
 
+/* Custom Bootstrap overwrites */
+
+input[type="text"],
+body textarea{
+  font-family: 'Coming Soon', cursive;
+  padding: 10px;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+.help-block {
+  margin-top: 0em;
+  margin-left: 1em;
+  font-size: 0.8em;
+}

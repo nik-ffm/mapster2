@@ -13,6 +13,6 @@ less:
         - .:/app/
     command: watch-lessc -i /app/less/style.less -o /app/app/css/style.css
 couch:
-    image: klaemo/couchdb
+    build: couch
     ports:
         - "5984:5984"

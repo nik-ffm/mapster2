@@ -1,9 +1,8 @@
 {
-  "name": "tecapp",
+  "name": "mapster",
   "version": "0.0.0",
-  "homepage": "https://github.com/alexex/tecapp",
+  "homepage": "https://github.com/nik-ffm/mapster",
   "authors": [
-    "Alexander Jung-Loddenkemper <alexander@julo.ch>",
     "Nico Kreiling <nico.kreiling@gmx.de>"
   ],
   "license": "SECRET",
@@ -16,18 +15,10 @@
     "tests"
   ],
   "dependencies": {
-    "jqueryui": "",
     "jquery": "",
-    "backbone": "",
-    "backbone.localStorage": "",
-    "backbone.stickit":"",
-    "bootstrap": "",
-    "moment": "",
-    "requirejs": "",
-    "requirejs-text": "",
-    "fontawesome": "",
-    "dropzone": "",
-    "jquery-tagit": "",
-    "hammer.js": ""
+    "mapbox.js": "",
+    "offline": "",
+    "pouchdb": "",
+    "backbone": ""
   }
 }

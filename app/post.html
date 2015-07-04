@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en-us" manifest="pouchnotes.manifest2">
+<head>
+    <meta charset="utf-8" />
+    <title>Mapster</title>
+    <meta name="viewport" content="width=device-width, height=device-height , initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="img/logo192.png">
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/mapbox.css">
+    <script type="text/javascript" src="js/requirements/pouchdb.js"></script>
+    <script type="text/javascript" src="js/requirements/jquery.js"></script>
+    <script type="text/javascript" src="js/requirements/mapbox.js"></script>
+    <script type="text/javascript" src="js/requirements/offline.min.js"></script>
+
+    <link href='http://fonts.googleapis.com/css?family=Coming+Soon' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">
+            <img alt="Mapster" src="...">
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container text-success bg-success" id="offlineNotification">
+      <p>You are offline. Enjoy the peacefull time.</p>
+    </div>
+
+    <div class="container text-info bg-info" id="syncNotification" style="display: none">
+      <p>
+        You have unshared experiences <button type="button" id="syncData"><i class="fa fa-refresh"></i> Sync</button>
+        </p>
+    </div>
+
+    <main>
+        <section id="addnote">
+            <form id="noteform" method="post" data-show="#allnotes" data-hide="#addnote">
+                <div class="hide" id="buttonwrapper">
+                    <button class="clicktarget edit" type="button">Edit Post</button>
+                    <button class="clicktarget delete" type="button">Delete Post</button>
+                </div>
+                <p>
+                    <input type="hidden" id="_rev" name="_rev" value="">
+                    <input type="hidden" id="_id"  name="_id" value="">
+                    <input type="text" id="notetitle" name="notetitle" placeholder="Your exciting post title" value="">
+                </p>
+                <p>
+                    <textarea id="note" name="note" cols="50" rows="5" placeholder="Don't keep your trip insights for you - share it with the world" required></textarea>
+                </p>
+                <p>
+                    <input type="text" id="tags" name="tags" placeholder="location, hostel names, experiences" aria-describedby="helpBlock">
+                    <span id="helpBlock" class="help-block">Use multiple tags seperated by comma</span>
+                </p>
+                
+
+                <p class="rel">
+                    <h4>Pictures</h4>
+                    <span class="btn btn-default btn-file">
+                        Browse <input type="file" id="attachment" name="attachment" class="abs">
+                    </span>
+                    <span class="filelist"></span>
+                </p>
+                
+
+                <div id="attachments" class="hide">
+                    <h2>Attachments</h2>
+                    <ul id="attachmentlist"></ul>
+                </div>
+
+                <div id="coordinates">
+                    <h4>Location</h4>
+                    <div class="row">
+                      <div class="col-xs-2">
+                        <button id="findMe" class="pull-right" type="button"><i class="fa fa-compass fa-2x"></i></button>
+                      </div>
+                      <div class="col-xs-5">
+                    <input id="lat" type="text" name="lat" class="gpsInput" placeholder="Latitude"/><br/>
+                      </div>
+                      <div class="col-xs-5">
+                        <input id="lng" type="text" name="lng"  class="gpsInput" placeholder="Longitude"/>
+                      </div>
+                    </div>
+                    
+                    <div id="findMeMap" style="height: 200px; width: 100%;"></div>
+                </div>
+                
+                <p>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Save Post</button>
+                </p>
+            </form>
+       </section>
+        
+    <div id="syncdialog" class="dialog hide" data-action="close">
+        <div>
+            <button type="button" class="close" data-action="close">Close</button>
+            <h1>Sync-ing data</h1>
+            <div class="progressbar">
+                <progress max="100"></progress>
+            </div>
+        </div>
+    </div>
+    <div id="errordialog" class="dialog hide" data-action="close">
+        <div>
+            <button type="button" data-action="close"></button>
+            <h1>Error</h1>
+            <div class="msg"></div>
+        </div>
+    </div>
+    
+    <script src="js/post.js"></script>
+</body>
+</html>

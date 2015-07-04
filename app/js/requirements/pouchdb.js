@@ -1,0 +1,1 @@
+../../../bower_components/pouchdb/dist/pouchdb.js

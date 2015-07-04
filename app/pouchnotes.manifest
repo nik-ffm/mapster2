@@ -6,7 +6,7 @@ index.html
 css/style.css
 css/mapbox.css
 
-js/pouchdb-nightly.min.js
+js/requirements/pouchdb.js
 js/requirements/jquery.js
 js/requirements/mapbox.js
 js/requirements/offline.min.js
