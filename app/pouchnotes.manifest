@@ -2,13 +2,21 @@ CACHE MANIFEST
 # Version 2014.02.10.01
 
 CACHE:
+favicon.ico
+
 index.html
+post.html
+admin.html
 css/style.css
 css/mapbox.css
 
+js/requirements/bootstrap.js
+js/requirements/offline.js
 js/requirements/pouchdb.js
 js/requirements/jquery.js
 js/requirements/mapbox.js
 js/requirements/offline.min.js
+
 js/application.js
 js/script.js
+js/post.js

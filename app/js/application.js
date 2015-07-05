@@ -489,8 +489,7 @@ var map = L.mapbox.map('myPostsMap', 'mapbox.streets')
 .setView(defaultCoords,13);
 
 var onLocationfound = function(e){
-    marker.setLatLng(e.latlng);
-    map.setView(marker.getLatLng(),map.getZoom()); 
+    map.setView(e.latlng,map.getZoom()); 
 };
 
 map.on('locationfound', onLocationfound);
