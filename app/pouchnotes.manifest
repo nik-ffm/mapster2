@@ -7,16 +7,21 @@ favicon.ico
 index.html
 post.html
 admin.html
+
+css/style2.css
+css/animate-custom.css
 css/style.css
 css/mapbox.css
 
 js/requirements/bootstrap.js
-js/requirements/offline.js
+js/requirements/offline.min.js
 js/requirements/pouchdb.js
+js/requirements/pouchdb.authenticate.js
 js/requirements/jquery.js
 js/requirements/mapbox.js
 js/requirements/offline.min.js
 
+js/config.js
 js/application.js
 js/script.js
 js/post.js

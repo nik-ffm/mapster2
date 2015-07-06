@@ -8351,18 +8351,29 @@ button.close {
   content: "\f23a";
 }
 /* Webfont: Lato-Medium */
-@font-face {
-  font-family: 'Lato';
-  src: url('../fonts/Lato-Medium.eot');
-  src: url('../fonts/Lato-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../fonts/Lato-Medium.woff') format('woff'), /* Modern Browsers */ url('../fonts/Lato-Medium.ttf') format('truetype');
-  font-style: normal;
-  font-weight: normal;
-  text-rendering: optimizeLegibility;
-  
-  /* IE9 Compat Modes */
-}
 /* Bootstrap overwrites */
 /* Own */
+#PostFilterContainer {
+  position: absolute;
+  top: 78px;
+  width: 80%;
+  left: 10%;
+}
+ul#allPosts {
+  position: absolute;
+  bottom: 0;
+  background-color: white;
+  width: 100%;
+  text-align: center;
+  padding: 0;
+}
+ul#allPosts li {
+  padding: 50px;
+  display: none;
+}
+ul#allPosts li.active {
+  display: block;
+}
 .gpsInput {
   line-height: 2em;
   width: 100%;

@@ -21,6 +21,7 @@
     "mapbox.js": "",
     "offline": "",
     "pouchdb": "",
+    "pouchdb-authentication": "",
     "backbone": ""
   }
 }

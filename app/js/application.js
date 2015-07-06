@@ -363,7 +363,22 @@ PouchNotesObj.prototype.search = function(searchkey) {
 
 
 /*------ Maybe do in a try-catch ? ------*/
-pn = new PouchNotesObj('mapster','http://192.168.59.103:5984');
+var pn = new PouchNotesObj('mapster',couchBase);
+var remoteDB = new PouchDB(couchBase+userView)
+var user;
+
+remoteDB.getSession(function (err, response) {
+  if (err) {
+    // network error
+    console.log('nobody is logged in',err);
+  } else if (!response.userCtx.name) {
+    // nobody's logged in
+    console.log(err,response);
+  } else{
+    console.log(err,response);
+    user = response.userCtx.name;
+  } 
+});
 
 pn.formobject = document.getElementById('noteform');
 pn.notetable  = document.getElementById('notelist');
@@ -468,7 +483,7 @@ pn.formobject.addEventListener('change', function(event){
 $('#syncData').on('click',function(){
     console.log("start sync");
         
-    var remoteDB = new PouchDB('http://192.168.59.103:5984/mapster')
+    var remoteDB = new PouchDB(couchBase+'/mapster')
     //var remoteDB = new PouchDB('https://nikffm.iriscouch.com/test')
 
     console.log(typeof(pn.pdb),pn.pdb);
@@ -501,15 +516,17 @@ map.locate();
 
 
 addMarker = function(el){
-    var marker = L.marker(new L.LatLng(el.lat,el.lng), {
-        icon: L.mapbox.marker.icon({
-            'marker-color': 'ff8888'
-        }),
-        draggable: false,
-    });
-    marker.bindPopup(el.notetitle);
-    marker.addTo(map);
-    console.log(el)
+    if (el.author !== undefined && el.lat !== "" && el.lng !== "") {  
+        var marker = L.marker(new L.LatLng(el.lat,el.lng), {
+            icon: L.mapbox.marker.icon({
+                'marker-color': 'ff8888'
+            }),
+            draggable: false,
+        });
+        marker.bindPopup(el.notetitle);
+        marker.addTo(map);
+        console.log(el)
+    }
 }
 
 

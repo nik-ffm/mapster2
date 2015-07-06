@@ -124,6 +124,8 @@ PouchNotesObj.prototype.savenote = function () {
     o.lat      = (this.formobject.lat.value == '') ? '' : this.formobject.lat.value;
     o.lng      = (this.formobject.lng.value == '') ? '' : this.formobject.lng.value;
     o.modified  = new Date().getTime();
+    console.log("set user",user)
+    o.author = user;
     
     this.pdb.put(o, function (error, response) {
         if(error){
@@ -314,7 +316,22 @@ PouchNotesObj.prototype.addrow = function (obj) {
 
 
 /*------ Maybe do in a try-catch ? ------*/
-pn = new PouchNotesObj('mapster','http://192.168.59.103:5984');
+var pn = new PouchNotesObj('mapster',couchBase);
+var remoteDB = new PouchDB(couchBase+userView)
+var user;
+
+remoteDB.getSession(function (err, response) {
+  if (err) {
+    // network error
+    console.log('nobody is logged in',err);
+  } else if (!response.userCtx.name) {
+    // nobody's logged in
+    console.log(err,response);
+  } else{
+    console.log(err,response);
+    user = response.userCtx.name;
+  } 
+});
 
 pn.formobject = document.getElementById('noteform');
 pn.notetable  = document.getElementById('notelist');
@@ -323,7 +340,7 @@ pn.errordialog  = document.getElementById('errordialog');
 pn.formobject.addEventListener('submit', function (e) {
     e.preventDefault();
     pn.savenote();
-    location.href = "admin.html";
+    //location.href = "admin.html";
 });
 
 pn.formobject.addEventListener('reset', function (e) {
@@ -409,9 +426,6 @@ pn.formobject.addEventListener('change', function(event){
 
 
 $('#syncData').on('click',function(){
-    console.log("start sync");
-        
-    var remoteDB = new PouchDB('http://192.168.59.103:5984/mapster')
     //var remoteDB = new PouchDB('https://nikffm.iriscouch.com/test')
 
     console.log(typeof(pn.pdb),pn.pdb);
