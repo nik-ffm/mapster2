@@ -15,7 +15,7 @@ $.fn.serializeObject = function()
     return o;
 };
 
-var pdb = new PouchDB('Mapster'),
+  var pdb = new PouchDB('Mapster'),
     remoteDB = new PouchDB('http://192.168.59.103:5984/mapster');
 
  $('#loginBtn').on('click',function(e){
@@ -29,9 +29,10 @@ var pdb = new PouchDB('Mapster'),
           console.log("unauthorized",err);
         } else {
           console.log(err)
+          showMap();
         }
       } else {
-        showMap();
+          showMap();
       }
   });
  }) 

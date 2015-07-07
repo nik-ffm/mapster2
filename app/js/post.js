@@ -340,7 +340,7 @@ pn.errordialog  = document.getElementById('errordialog');
 pn.formobject.addEventListener('submit', function (e) {
     e.preventDefault();
     pn.savenote();
-    //location.href = "admin.html";
+    location.href = "index.html";
 });
 
 pn.formobject.addEventListener('reset', function (e) {
