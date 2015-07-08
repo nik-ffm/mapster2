@@ -20,7 +20,7 @@ define(['backbone',
                 'apiBase': 'http://192.168.59.103:5004',
                 'views': [],
                 'pdb': new PouchDB(userView),
-                'remoteDB': new PouchDB(couchBase+/+userView)
+                'remoteDB': new PouchDB(couchBase+'/'+userView)
             },
 
             // store this data in the cache, so that it is saved between
