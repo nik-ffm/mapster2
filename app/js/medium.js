@@ -17,7 +17,7 @@ define(['backbone',
                 'user': undefined,
                 // baseString for the API without trailing slash
                 // 'apiBase': 'https://tecbackend.julohosted.net',
-                'apiBase': 'http://192.168.59.103:5004',
+                'apiBase': 'http://46.101.251.178:5004',
                 'views': [],
                 'pdb': new PouchDB(userView),
                 'remoteDB': new PouchDB(couchBase+'/'+userView)
