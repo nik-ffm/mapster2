@@ -145,8 +145,6 @@ PouchNotesObj.prototype.savenote = function () {
           
           that.show(that.formobject.dataset.show);
             that.hide(that.formobject.dataset.hide);
-          
-            viewnotes.dispatchEvent(new MouseEvent('click')); 
     }
     });
   

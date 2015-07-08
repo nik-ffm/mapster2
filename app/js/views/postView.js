@@ -20,8 +20,8 @@ define([
       medium.trigger('view:add', this);
     },
     show: function(id) {
-      this.render();
       medium.trigger('view:show', this);
+      this.render();
     },
 
     render: function() {
@@ -83,8 +83,6 @@ define([
       editbutton = document.querySelector('button[type=button].edit');
       delbutton = document.querySelector('button[type=button].delete');
 
-      showview = document.querySelectorAll('button.clicktarget');
-
 
       /*------ Maybe do in a try-catch ? ------*/
 
@@ -99,7 +97,7 @@ define([
       pn.formobject.addEventListener('submit', function(e) {
         e.preventDefault();
         pn.savenote();
-        medium.trigger('nav:route', 'home')
+        medium.trigger('route:nav', '#/home')
       });
 
       pn.formobject.addEventListener('reset', function(e) {
@@ -112,13 +110,13 @@ define([
         document.getElementById('attachmentlist').innerHTML = '';
       });
 
-      window.addEventListener('hashchange', function(e) {
-        var noteid;
-        if (window.location.hash.replace(/#/, '')) {
-          noteid = window.location.hash.match(/\d/g).join('');
-          pn.viewnote(noteid);
-        }
-      });
+      // window.addEventListener('hashchange', function(e) {
+      //   var noteid;
+      //   if (window.location.hash.replace(/#/, '')) {
+      //     noteid = window.location.hash.match(/\d/g).join('');
+      //     pn.viewnote(noteid);
+      //   }
+      // });
 
       svhandler = function(evt) {
         var attchlist = document.getElementById('attachmentlist');
@@ -161,10 +159,6 @@ define([
       delbutton.addEventListener('click', function(e) {
         pn.deletenote(+e.target.form._id.value);
         location.href = "admin.html";
-      });
-
-      Array.prototype.map.call(showview, function(ct) {
-        ct.addEventListener('click', svhandler);
       });
 
       Array.prototype.map.call(document.getElementsByClassName('dialog'), function(d) {

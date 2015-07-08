@@ -42,6 +42,24 @@ define([
             var map = L.mapbox.map('allPostsMap', 'mapbox.streets').setView(defaultCoords, 13);
 
             map.locate();
+
+            var options = {}, 
+            pdb = medium.get("pdb");
+            options.include_docs = true;
+            pdb.allDocs(options, function (error, response) {
+                if (error) {
+                    console.warn("could not load local documents:",error);
+                } else {
+                    _.each(response.rows,function(el){
+                        if (el.doc) {
+                            var marker = el.doc;
+                            marker.status = 'unsynced';
+                            self.addMarker(marker,map);
+                        }
+                    });
+                }
+            });
+
             self = this;
             this.model = new PostModel();
             this.model.fetch({
@@ -76,6 +94,10 @@ define([
                 type = 'other';
             }
 
+            if (el.status === 'unsynced') {
+                 col = '88ff00';
+            }
+
             var marker = L.marker(new L.LatLng(el.lat, el.lng), {
                 markerID: el._id,
                 icon: L.mapbox.marker.icon({
@@ -89,6 +111,7 @@ define([
 
             $('ul#allPosts').append($('<li>').addClass(el.author).attr('id', el._id).html('<h2>' + el.notetitle + '</h2><p>' + el.note + '</p><p style="float: right"><i>-' + el.author + '</i></p>'));
 
+            if (el.status !== 'unsynced' || el.author == medium.get("user"))
             marker.addTo(map);
         }
     });

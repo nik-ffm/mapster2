@@ -39,7 +39,7 @@ define([
                 var login = new LoginView();
             } else {
                 this.render();
-                medium.trigger('route:nav','#home');
+                medium.trigger('route:nav','#/home');
             }   
             
             Backbone.history.start();
@@ -103,7 +103,7 @@ define([
             var nav = new NavView();
             $('#loginWrapper').hide();
             this.render();
-            medium.trigger('route:nav','#home');
+            medium.trigger('route:nav','#/home');
         },
 
     });
