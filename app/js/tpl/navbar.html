@@ -1,0 +1,30 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" style="margin-left: 8px;">
+      <span class="sr-only">Toggle navigation</span>
+      <i class="fa fa-bars"></i>
+      </button>
+      <a href="#/post">
+        <button type="button" class="navbar-toggle collapsed pull-right"><i class="fa fa-plus"></i></button>
+      </a>
+      <a class="navbar-brand" id="logo" href="#/home" style="width: 60%; text-align: center">Mapster</a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <!-- <form class="form-inline">
+        <input type="text" class="form-control" id="q" name="q" placeholder="Search the world..." style="width: 80%; display: inline-block">
+        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+      </form> -->
+      <div style="display: inline-block; text-align: center">
+        <a href="admin.html"><button class="clicktarget" type="button" data-action="viewnoteset" data-show="#allnotes" data-hide="section:not(#allnotes)">My Posts</button></a>
+        <a href="#/post">
+          <button type="button" id="addPost">Add Post</button>
+        </a>
+        <button type="button" id="syncData">SyncData</button>
+        <button type="button" id="logout">Logout</button>
+      </div>
+      </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>

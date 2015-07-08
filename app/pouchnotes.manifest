@@ -16,7 +16,7 @@ css/mapbox.css
 js/requirements/bootstrap.js
 js/requirements/offline.min.js
 js/requirements/pouchdb.js
-js/requirements/pouchdb.authenticate.js
+js/requirements/pouchdb.authentication.js
 js/requirements/jquery.js
 js/requirements/mapbox.js
 js/requirements/offline.min.js
