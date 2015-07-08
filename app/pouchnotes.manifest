@@ -44,7 +44,4 @@ js/main.js
 js/medium.js
 js/post.js
 js/pouchdb-nightly.min.js
-js/requirements
 js/router.js
-js/tpl
-js/views
